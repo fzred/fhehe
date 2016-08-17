@@ -4,6 +4,7 @@
     "space-before-function-paren": 0,
     "comma-dangle": [2, "only-multiline"],
     "no-unused-vars": 0,
-    "no-var": 2
+    "no-var": 2,
+    "jsx-quotes": [2, "prefer-double"]
   }
 }
