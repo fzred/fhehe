@@ -1,6 +1,9 @@
 {
   "parser": "babel-eslint",
   "extends": "vue",
+  "globals": {
+    "fetch": true
+  },
   "rules": {
     "space-before-function-paren": 0,
     "comma-dangle": [2, "only-multiline"],
