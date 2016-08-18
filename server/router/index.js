@@ -1,9 +1,10 @@
 import express from 'express'
-
+import { getDiarys } from '../data'
 const router = express.Router()
 
 router.get('/list', async(req, res) => {
-  res.send('11')
+  const list = await getDiarys()
+  res.json(list)
 })
 
 export default router

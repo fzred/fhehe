@@ -1,8 +1,14 @@
 import path from 'path'
-import sqlite3 from 'sqlite3'
 
 const file = path.resolve(__dirname, './data.db')
-const Sqlite3 = sqlite3.verbose()
-const db = new Sqlite3.Database(file)
 
-export default {}
+const knex = require('knex')({
+  client: 'sqlite3',
+  connection: {
+    filename: file
+  }
+})
+
+export function getDiarys() {
+  return knex.select().table('diary')
+}
