@@ -11,7 +11,3 @@ ReactDOM.render((
     <Route path="/index" component={Index}></Route>
   </Router>
 ), document.getElementById('app'))
-
-fetch('/api/list').then(res => res.json()).then(obj => {
-  console.log(obj)
-})
