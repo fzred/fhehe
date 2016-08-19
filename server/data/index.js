@@ -1,8 +1,9 @@
 import path from 'path'
+import knex from 'knex'
 
 const file = path.resolve(__dirname, './data.db')
 
-const knex = require('knex')({
+const db = knex({
   client: 'sqlite3',
   connection: {
     filename: file
@@ -10,5 +11,5 @@ const knex = require('knex')({
 })
 
 export function getDiarys() {
-  return knex.select().table('diary')
+  return db.select().table('diary')
 }
