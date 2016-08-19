@@ -6,6 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './build'),
     filename: 'main.js?[hash:8]',
+    publicPath: 'http://127.0.0.1:4010/',
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
@@ -16,14 +17,15 @@ module.exports = {
         test: /\.js|jsx$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel',
-        query: {
-          presets: ['es2015', 'react', 'react-hmre']
-        }
       },
       { test: /\.css$/, loader: 'style!css' },
       { test: /\.less$/, loader: 'style!css!less' },
       { test: /\.(png|jpg)$/, loader: 'url?limit=25000' }
     ]
+  },
+  babel: {
+    presets: ['es2015', 'react', 'react-hmre'],
+    plugins: ['transform-runtime']
   },
   plugins: [new HtmlWebpackPlugin({
     filename: 'index.html',
