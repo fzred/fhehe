@@ -1,5 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/workspace.xml
+.idea/dbnavigator.xml
 npm-debug.log
 build/
 node_modules/
