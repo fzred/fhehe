@@ -8,6 +8,17 @@ export default class extends React.Component {
 
   render() {
     this.getData()
-    return (<h1>App</h1>)
+    return (
+      <h1 onTouchTap={this.handleTouchTap}
+          onClick={this.handleClick}>App</h1>
+    )
+  }
+
+  handleTouchTap() {
+    console.log('handleTouchTap', Date.now())
+  }
+
+  handleClick() {
+    console.log('handleClick', Date.now())
   }
 }
