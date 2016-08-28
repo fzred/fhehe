@@ -7,6 +7,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 import Index from './components/index'
 import Login from './components/login'
 import App from './components/app'
+import AddLog from './components/add-log'
 
 injectTapEventPlugin()
 
@@ -16,6 +17,7 @@ ReactDOM.render((
       <Route path="/" component={App}></Route>
       <Route path="/index" component={Index}></Route>
       <Route path="/login" component={Login}></Route>
+      <Route path="/add-log" component={AddLog}></Route>
     </Router>
   </MuiThemeProvider>
 ), document.getElementById('app'))

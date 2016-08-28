@@ -12,7 +12,12 @@ export default class extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.login.bind(this)}>
+      <form onSubmit={this.sub.bind(this)}>
+        <TextField
+          hintText="输入点内容"
+          multiLine={true}
+          rows={2}
+          rowsMax={5}/>
         <TextField
           hintText="输入点东西"
           fullWidth={true}
@@ -29,9 +34,7 @@ export default class extends React.Component {
     })
   }
 
-  async login(e) {
+  async sub(e) {
     e.preventDefault()
-    post('login?af=1', { name: this.state.pwd })
-    console.log('login', this.state.pwd)
   }
 }
