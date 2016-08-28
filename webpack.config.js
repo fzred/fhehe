@@ -20,7 +20,6 @@ module.exports = {
         loader: 'babel',
       },
       { test: /\.css$/, loader: 'style!css' },
-      { test: /\.less$/, loader: 'style!css!less' },
       { test: /\.(png|jpg)$/, loader: 'url?limit=25000' }
     ]
   },
