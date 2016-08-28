@@ -32,6 +32,7 @@
     "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
+    "autoprefixer": "^6.4.0",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.13.2",
     "babel-eslint": "^6.1.2",
@@ -46,6 +47,8 @@
     "eslint": "^3.3.1",
     "eslint-config-vue": "^1.0.3",
     "html-webpack-plugin": "^2.22.0",
+    "postcss-loader": "^0.11.0",
+    "precss": "^1.4.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",

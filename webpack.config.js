@@ -1,6 +1,8 @@
 const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const precss = require('precss')
+const autoprefixer = require('autoprefixer')
 
 module.exports = {
   entry: path.resolve(__dirname, './src/main.js'),
@@ -19,13 +21,16 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         loader: 'babel',
       },
-      { test: /\.css$/, loader: 'style!css' },
+      { test: /\.css$/, loader: 'style!css!postcss' },
       { test: /\.(png|jpg)$/, loader: 'url?limit=25000' }
     ]
   },
   babel: {
     presets: ['es2015', 'react', 'react-hmre'],
     plugins: ['transform-runtime']
+  },
+  postcss: function () {
+    return [precss, autoprefixer];
   },
   plugins: [new HtmlWebpackPlugin({
     filename: 'index.html',
