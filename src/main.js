@@ -8,6 +8,7 @@ import Index from './components/index'
 import Login from './components/login'
 import App from './components/app'
 import AddLog from './components/add-log'
+import './css/main.css'
 
 injectTapEventPlugin()
 

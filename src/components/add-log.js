@@ -16,6 +16,7 @@ export default class extends React.Component {
         <TextField
           hintText="输入点内容"
           multiLine={true}
+          fullWidth={true}
           rows={2}
           rowsMax={5}/>
         <TextField
