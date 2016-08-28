@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const precss = require('precss')
 const autoprefixer = require('autoprefixer')
 
+// noinspection JSUnusedGlobalSymbols
 module.exports = {
   entry: path.resolve(__dirname, './src/main.js'),
   output: {
@@ -30,7 +31,7 @@ module.exports = {
     plugins: ['transform-runtime']
   },
   postcss: function () {
-    return [precss, autoprefixer];
+    return [precss, autoprefixer]
   },
   plugins: [new HtmlWebpackPlugin({
     filename: 'index.html',
@@ -38,6 +39,7 @@ module.exports = {
   })]
 }
 if (process.env.NODE_ENV === 'production') {
+  // noinspection JSUnresolvedFunction
   module.exports.plugins = [
     new webpack.DefinePlugin({
       'process.env': {

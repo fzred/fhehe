@@ -1,6 +1,6 @@
 import React from 'react'
 import TextField from 'material-ui/TextField'
-import { get, post } from '../common/http'
+import { post } from '../common/http'
 
 export default class extends React.Component {
   constructor() {
