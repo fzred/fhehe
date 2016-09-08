@@ -9,8 +9,10 @@ export default class extends React.Component {
   render() {
     this.getData()
     return (
-      <h1 onTouchTap={this.handleTouchTap}
-          onClick={this.handleClick}>App</h1>
+      <div>
+        <h1 onTouchTap={this.handleTouchTap}
+            onClick={this.handleClick}>App</h1>
+      </div>
     )
   }
 
