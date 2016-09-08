@@ -8,7 +8,7 @@ const autoprefixer = require('autoprefixer')
 module.exports = {
   entry: path.resolve(__dirname, './src/main.js'),
   output: {
-    path: path.resolve(__dirname, './build'),
+    path: path.resolve(__dirname, './dist'),
     filename: 'main.js?[hash:8]',
     publicPath: 'http://127.0.0.1:4010/',
   },
