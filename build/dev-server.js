@@ -1,11 +1,13 @@
 import path from 'path'
+import http from 'http'
 import express from 'express'
 import webpack from 'webpack'
+import reload from 'reload'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
 import config from '../config'
 import webpackConfig from './webpack-dev.config'
-import router from '../server/router'
+import routerApi from '../server/router/api'
 
 const app = express()
 const port = process.env.PORT || config.port
@@ -35,12 +37,25 @@ app.use(devMiddleware)
 app.use(hotMiddleware)
 
 app.use(express.static(path.join(__dirname, 'public')))
-app.use('/api', router)
+app.use('/api', routerApi)
 
-app.listen(port, err => {
+const server = http.createServer(app)
+
+// Reload code here
+reload(server, app)
+
+server.listen(port, err => {
   if (err) {
     console.log(err)
     return
   }
   console.log(`Listening at http://localhost:${port}`)
 })
+
+// app.listen(port, err => {
+//   if (err) {
+//     console.log(err)
+//     return
+//   }
+//   console.log(`Listening at http://localhost:${port}`)
+// })

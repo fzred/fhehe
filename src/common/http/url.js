@@ -1,6 +1,6 @@
 export default class Url {
   constructor(url, options) {
-    if (!url.match(/^(https?:)?\//)) {
+    if (!url.match(/^(https?:)\//)) {
       url = options.root + '/' + url
     }
     const el = document.createElement('a')
