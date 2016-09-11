@@ -5,21 +5,10 @@ import webpackHotMiddleware from 'webpack-hot-middleware'
 import cp from 'child_process'
 
 import webpackBroswerConfig from './webpack-dev.config'
-import webpackServerConfig from './webpack-server.config'
 
 import config from '../server/config'
 
 const port = process.env.PORT || config.port
-
-// webpack(webpackServerConfig).watch({
-//   aggregateTimeout: 300,
-// }, (err, stats) => {
-//   if (err) {
-//     console.log(err)
-//     return
-//   }
-//   console.log('server 编译完成')
-// })
 
 const compiler = webpack(webpackBroswerConfig)
 const devMiddleware = webpackMiddleware(compiler, {
@@ -45,10 +34,14 @@ bs.init({
     middleware: [devMiddleware, hotMiddleware],
   },
 })
-
-const babelServer = cp.exec('babel -w server/ -d dist -s')
-const nodeDevServer = cp.exec('node-dev dist/app')
-process.on('exit', () => {
-  babelServer.kill('SIGTERM')
-  nodeDevServer.kill('SIGTERM')
+let server
+function runServer() {
+  if (server) {
+    server.kill('SIGTERM')
+  }
+  server = cp.exec('babel-node server/app.js')
+}
+bs.watch('./server/**/*.js', () => {
+  console.log('server change-----------')
+  runServer()
 })
