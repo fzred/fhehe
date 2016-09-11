@@ -36,13 +36,27 @@ bs.init({
 })
 let firstStart = 1
 let server, timer
-function runServer() {
+process.on('exit', () => {
   if (server) {
     server.kill('SIGTERM')
   }
-  console.log('server restart')
+})
+function runServer() {
+  if (server) {
+    server.kill()
+  }
+  const time = new Date().toTimeString()
+  console.log(time.replace(/.*(\d{2}:\d{2}:\d{2}).*/, '[$1]'), 'server restart')
   bs.notify('server restart')
-  server = cp.exec('babel-node server/app.js')
+  server = cp.fork('./server/app.js')
+  // server = cp.exec('babel-node server/app.js')
+  // server.stdout.on('data', data => {
+  //   const time = new Date().toTimeString()
+  //
+  //   process.stdout.write(time.replace(/.*(\d{2}:\d{2}:\d{2}).*/, '[$1]'))
+  //   process.stdout.write('server: ' + data)
+  // })
+  // server.stderr.on('data', x => process.stderr.write(x))
 }
 bs.watch('./server/**/*.js', () => {
   if (firstStart) {
