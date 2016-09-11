@@ -6,7 +6,7 @@ const projectRoot = path.resolve(__dirname, '../')
 
 export default {
   entry: {
-    app: path.resolve(projectRoot, './src/main.js'),
+    broswer: path.resolve(projectRoot, './src/main.js'),
   },
   output: {
     publicPath: '/',

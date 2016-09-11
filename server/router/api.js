@@ -8,6 +8,6 @@ router.get('/list', async(req, res) => {
 })
 router.get('/log/add', async(req, res) => {
   // console.log(req.body.content)
-  res.json({ a: '21f' })
+  res.json({ a: '21fsff' })
 })
 export default router

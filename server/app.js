@@ -6,7 +6,7 @@ import routerApi from '../server/router/api'
 const app = express()
 const port = process.env.PORT || config.port
 
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, '../public')))
 app.use('/api', routerApi)
 app.listen(port, err => {
   if (err) {
