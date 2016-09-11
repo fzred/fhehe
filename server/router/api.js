@@ -6,8 +6,8 @@ router.get('/list', async(req, res) => {
   const list = await getDiarys()
   res.json(list)
 })
-router.post('/log/add', async(req, res) => {
+router.get('/log/add', async(req, res) => {
   // console.log(req.body.content)
-  res.json({ a: 1 })
+  res.json({ a: '21f' })
 })
 export default router
