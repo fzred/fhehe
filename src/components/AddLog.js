@@ -66,7 +66,7 @@ You're here, tonight.
 
   async sub() {
     console.log('sub')
-    const result = await post('/log/add', {
+    const result = await post('log/add', {
       content: this.state.content,
       date: this.state.date.getTime(),
       imgs: this.state.imgs,

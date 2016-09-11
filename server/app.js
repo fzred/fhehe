@@ -1,7 +1,7 @@
 import path from 'path'
 import express from 'express'
-import config from '../config'
-import routerApi from '../server/router/api'
+import config from './config'
+import routerApi from './router/api'
 
 const app = express()
 const port = process.env.PORT || config.port

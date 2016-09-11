@@ -6,7 +6,7 @@ router.get('/list', async(req, res) => {
   const list = await getDiarys()
   res.json(list)
 })
-router.get('/log/add', async(req, res) => {
+router.all('/log/add', async(req, res) => {
   // console.log(req.body.content)
   res.json({ a: '21fsff' })
 })
