@@ -13,3 +13,6 @@ const db = knex({
 export function getDiarys() {
   return db.select().table('diary')
 }
+export function insertDiary(data) {
+  return db('diary').insert(data)
+}

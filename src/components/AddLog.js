@@ -8,7 +8,7 @@ export default class extends React.Component {
   constructor() {
     super()
     this.state = {
-      content: `Am I in too deep?
+      text: `Am I in too deep?
 我是不是深陷爱里
 Have I lost my mind?
 已经有些失控？
@@ -16,7 +16,7 @@ I don't care...
 我都不在乎
 You're here, tonight.
 今夜你就在这里`,
-      date: new Date(),
+      time: new Date(),
       imgs: [
         'https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=197422931,3992689016&fm=58',
         'https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=197422931,3992689016&fm=58',
@@ -34,11 +34,11 @@ You're here, tonight.
           fullWidth={true}
           rows={2}
           rowsMax={5}
-          value={this.state.content}
+          value={this.state.text}
         />
         <DatePicker
           hintText="发生时间"
-          defaultDate={this.state.date}
+          defaultDate={this.state.time}
         />
         <div className="choose-img">
           <RaisedButton label="上传图片"/>
@@ -65,10 +65,9 @@ You're here, tonight.
   }
 
   async sub() {
-    console.log('sub')
     const result = await post('log/add', {
-      content: this.state.content,
-      date: this.state.date.getTime(),
+      text: this.state.text,
+      time: this.state.time.getTime(),
       imgs: this.state.imgs,
     })
     console.log(result)
