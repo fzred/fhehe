@@ -34,14 +34,23 @@ bs.init({
     middleware: [devMiddleware, hotMiddleware],
   },
 })
-let server
+let firstStart = 1
+let server, timer
 function runServer() {
   if (server) {
     server.kill('SIGTERM')
   }
+  bs.notify('server restart')
   server = cp.exec('babel-node server/app.js')
 }
 bs.watch('./server/**/*.js', () => {
-  console.log('server change-----------')
-  runServer()
+  if (firstStart) {
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+      firstStart = 0
+      runServer()
+    }, 2000)
+  } else {
+    runServer()
+  }
 })
