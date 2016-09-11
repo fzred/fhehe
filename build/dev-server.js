@@ -40,6 +40,7 @@ function runServer() {
   if (server) {
     server.kill('SIGTERM')
   }
+  console.log('server restart')
   bs.notify('server restart')
   server = cp.exec('babel-node server/app.js')
 }
