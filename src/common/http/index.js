@@ -11,7 +11,7 @@ export default function http(url, data, opts) {
 
   const uri = new Url(url, options)
   if (opts.method === 'GET') {
-    uri.addParams(data)
+    if (data) uri.addParams(data)
   }
   return fetch(uri.getUrl(), opts).then(res => res.json())
 }
